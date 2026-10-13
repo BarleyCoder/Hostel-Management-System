@@ -1,0 +1,44 @@
+{
+      "$schema": "https://openapi.vercel.sh/vercel.json",
+      "services": {
+            "angular-frontend": {
+                  "root": "angular-frontend",
+                  "framework": "angular",
+                  "rewrites": [
+                        {
+                              "source": "/(.*)",
+                              "destination": "/index.html"
+                        }
+                  ]
+            },
+            "backend": {
+                  "root": "backend",
+                  "framework": "express",
+                  "entrypoint": "server.js"
+            },
+            "student-frontend": {
+                  "root": "student-frontend",
+                  "framework": "vite"
+            }
+      },
+      "rewrites": [
+            {
+                  "source": "/api",
+                  "destination": {
+                        "service": "backend"
+                  }
+            },
+            {
+                  "source": "/api/(.*)",
+                  "destination": {
+                        "service": "backend"
+                  }
+            },
+            {
+                  "source": "/(.*)",
+                  "destination": {
+                        "service": "angular-frontend"
+                  }
+            }
+      ]
+}
