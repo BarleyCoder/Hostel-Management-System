@@ -1,0 +1,11 @@
+# Never commit credentials or environment configuration
+**/.env
+**/.env.*
+!**/.env.example
+
+# Dependencies and generated build output
+**/node_modules/
+**/dist/
+**/.angular/
+**/coverage/
+*.log
